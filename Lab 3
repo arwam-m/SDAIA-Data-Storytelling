@@ -1,0 +1,128 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+data = {
+   "Region": ["Riyadh", "Makkah", "Madinah", "Eastern", "Asir"],
+   "Adoption": [85, 72, 91, 65, 78]
+}
+
+df = pd.DataFrame(data)
+df_sorted = df.sort_values("Adoption")
+
+plt.figure(figsize=(8,5))
+plt.bar(df_sorted["Region"], df_sorted["Adoption"])
+plt.xlabel("Region")
+plt.ylabel("Adoption (%)")
+plt.title("Digital Adoption by Region — Sorted")
+plt.xticks(rotation=45)
+plt.show()
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.DataFrame({
+   "Department": ["HR", "Finance", "IT", "Sales"],
+   "Absence": [5, 8, 12, 7]
+})
+
+plt.bar(df["Department"], df["Absence"],
+       color=["red", "green", "blue", "purple"])
+plt.title("Employee Absence")
+plt.xlabel("Department")
+plt.ylabel("Absence %")
+plt.grid(True)
+plt.legend(["Absence"])
+plt.show()
+
+plt.figure(figsize=(8,5))
+plt.bar(df["Department"], df["Absence"], color="steelblue")
+plt.title("Employee Absence by Department")
+plt.xlabel("Department")
+plt.ylabel("Absence (%)")
+plt.show()
+
+plt.figure(figsize=(8,5))
+plt.bar(df["Department"], df["Absence"], color="steelblue")
+plt.title("Employee Absence by Department")
+plt.xlabel("Department")
+plt.ylabel("Absence (%)")
+plt.grid(False)
+
+ax = plt.gca()
+ax.spines["top"].set_visible(False)
+ax.spines["right"].set_visible(False)
+plt.show()
+
+plt.figure(figsize=(8,5))
+plt.bar(df["Department"], df["Absence"], color="steelblue")
+plt.title("IT Has the Highest Absence — 12%")
+plt.xlabel("Department")
+plt.ylabel("Absence (%)")
+plt.grid(False)
+
+ax = plt.gca()
+ax.spines["top"].set_visible(False)
+ax.spines["right"].set_visible(False)
+
+plt.annotate("Highest",
+            xy=("IT", 12),
+            xytext=("Finance", 13),
+            arrowprops=dict(arrowstyle="->"))
+plt.show()
+
+
+
+plt.figure(figsize=(8,5))
+plt.bar(df["Department"], df["Absence"], color="steelblue")
+plt.title("Employee Absence by Department")
+plt.xlabel("Department")
+plt.ylabel("Absence (%)")
+plt.show()
+
+arabic = ["الموارد البشرية", "المالية", "تقنية المعلومات", "المبيعات"]
+
+plt.figure(figsize=(9,5))
+plt.bar(arabic, df["Absence"], color="steelblue")
+plt.title("تقنية المعلومات لديها أعلى نسبة غياب — 12%")
+plt.xlabel("القسم")
+plt.ylabel("نسبة الغياب (%)")
+plt.grid(False)
+
+ax = plt.gca()
+ax.spines["top"].set_visible(False)
+ax.spines["right"].set_visible(False)
+plt.show()
+
+before = [5, 8, 12, 7]
+after = [5, 8, 12, 7]
+
+print("Before:", before)
+print("After :", after)
+
+
+
+import matplotlib.pyplot as plt
+import pandas as pd
+
+df = pd.DataFrame({
+   "Department": ["HR", "Finance", "IT", "Sales"],
+   "Absence": [5, 8, 12, 7]
+})
+
+plt.figure(figsize=(9,5))
+plt.bar(df["Department"], df["Absence"], color="steelblue")
+plt.title("IT Has the Highest Absence — 12%")
+plt.xlabel("Department")
+plt.ylabel("Absence (%)")
+plt.grid(False)
+
+ax = plt.gca()
+ax.spines["top"].set_visible(False)
+ax.spines["right"].set_visible(False)
+
+plt.annotate("Highest",
+            xy=("IT", 12),
+            xytext=("Finance", 13),
+            arrowprops=dict(arrowstyle="->"))
+plt.show()
