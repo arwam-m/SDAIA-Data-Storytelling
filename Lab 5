@@ -1,0 +1,343 @@
+audience = "Steering Committee"
+
+decision = "Where should the next investment be directed?"
+
+big_idea = "Prioritize lagging regions to improve adoption."
+
+objection = "Are the lagging regions simply smaller?"
+
+
+print("AUDIENCE:", audience)
+
+print("DECISION:", decision)
+
+print("BIG IDEA:", big_idea)
+
+print("ANTICIPATED OBJECTION:", objection)
+
+
+
+POV = "Lagging regions have the largest adoption gap."
+
+STAKES = "The gap puts the 65% target at risk."
+
+ACTION = "Prioritize the next investment in these regions."
+
+
+big_idea = f"{POV} {STAKES} {ACTION}"
+
+
+print("BIG IDEA:")
+
+print(big_idea)
+
+new_audience = "Investment Committee"
+new_decision = "Which underperforming investments should be re-evaluated?"
+new_big_idea_reiterated = new_big_idea # Using the previously defined new_big_idea
+new_objection = "How do we define 'underperforming' and what are the criteria for re-evaluation?"
+
+
+print("AUDIENCE:", new_audience)
+print("DECISION:", new_decision)
+print("BIG IDEA:", new_big_idea_reiterated)
+print("ANTICIPATED OBJECTION:", new_objection)
+
+new_POV = "Some existing investments are not performing as expected."
+new_STAKES = "Ineffective investments waste resources and hinder overall progress."
+new_ACTION = "We need to identify and re-evaluate these failing investments."
+
+new_big_idea = f"{new_POV} {new_STAKES} {new_ACTION}"
+
+print("NEW BIG IDEA:")
+print(new_big_idea)
+
+storyboard = [
+
+    ["BLUF", "Prioritize investment in lagging regions."],
+
+    ["Situation", "Adoption varies across regions."],
+
+    ["Complication", "Some regions are below the 65% target."],
+
+    ["Evidence", "The largest gaps are concentrated in lagging regions."],
+
+    ["Options", "Broad investment or targeted regional investment."],
+
+    ["Recommendation", "Target investment at lagging regions."],
+
+    ["Ask", "Approve the targeted investment approach."]
+
+]
+
+
+for slide, message in enumerate(storyboard, start=1):
+
+    print(f"Slide {slide}: {message[0]}")
+
+    print("Message:", message[1])
+
+    print()
+
+def audit(storyboard):
+
+    checks = {
+
+        "Exactly 7 scenes": len(storyboard) == 7,
+
+        "Starts with BLUF": storyboard[0][0] == "BLUF",
+
+        "Ends with Ask": storyboard[-1][0] == "Ask",
+
+        "Every scene has a message": all(
+
+            message.strip() for _, message in storyboard
+
+        )
+
+    }
+
+
+    for check, result in checks.items():
+
+        print(f"{'PASS' if result else 'FAIL'} — {check}")
+
+
+    return all(checks.values())
+
+
+audit(storyboard)
+
+import pandas as pd
+
+import matplotlib.pyplot as plt
+
+
+df = pd.DataFrame({
+
+    "Region": ["North", "South", "East", "West"],
+
+    "Adoption": [72, 61, 48, 55]
+
+})
+
+
+target = 65
+
+
+print(df)
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.DataFrame({
+    "Region": ["North", "South", "East", "West"],
+    "Adoption": [72, 61, 48, 55]
+})
+
+
+plt.figure(figsize=(8, 5))
+
+
+plt.bar(df["Region"], df["Adoption"])
+
+
+plt.title("Adoption Varies Across Regions")
+
+plt.xlabel("Region")
+
+plt.ylabel("Adoption (%)")
+
+
+plt.ylim(0, 100)
+
+plt.show()
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.DataFrame({
+    "Region": ["North", "South", "East", "West"],
+    "Adoption": [72, 61, 48, 55]
+})
+
+target = 65
+
+plt.figure(figsize=(8, 5))
+
+
+plt.bar(df["Region"], df["Adoption"])
+
+
+plt.axhline(
+
+    target,
+
+    linestyle="--",
+
+    label="Target = 65%"
+
+)
+
+
+plt.title("Three Regions Are Below the 65% Target")
+
+plt.xlabel("Region")
+
+plt.ylabel("Adoption (%)")
+
+
+plt.ylim(0, 100)
+
+plt.legend()
+
+
+plt.show()
+
+df["Gap"] = target - df["Adoption"]
+
+
+print(df[["Region", "Adoption", "Gap"]])
+
+plt.figure(figsize=(8, 5))
+
+
+plt.bar(df["Region"], df["Gap"])
+
+
+plt.axhline(
+
+    0,
+
+    linestyle="--"
+
+)
+
+
+plt.title("East Has the Largest Adoption Gap")
+
+plt.xlabel("Region")
+
+plt.ylabel("Gap to Target (percentage points)")
+
+
+plt.show()
+
+bluf = {
+
+    "Bottom Line": "Prioritize investment in lagging regions.",
+
+    "Why": "These regions have the largest gaps from the 65% target.",
+
+    "Ask": "Approve targeted investment for the lagging regions."
+
+}
+
+
+for key, value in bluf.items():
+
+    print(f"{key}: {value}")
+
+slides = [
+
+    ("BLUF", True),
+
+    ("Situation", True),
+
+    ("Complication", True),
+
+    ("Evidence", True),
+
+    ("Options", True),
+
+    ("Recommendation", True),
+
+    ("Ask", True),
+
+    ("Extra Chart", False)
+
+]
+
+
+appendix = []
+
+
+for slide, advances_story in slides:
+
+    if not advances_story:
+
+        appendix.append(slide)
+
+
+print("Appendix slides:")
+
+
+for slide in appendix:
+
+    print("-", slide)
+
+import os
+
+
+os.makedirs("lab5_solution", exist_ok=True)
+
+
+print("lab5_solution folder created.")
+
+TIME_BOX = {"BLUF": 30, "situation": 45,
+           "complication": 60, "evidence": 75,
+           "options": 90, "resolution": 60,
+           "ask": 30}   # seconds, sums to 7 min
+
+# Define new_big_idea explicitly here since it may not be in the kernel state
+new_big_idea_text = "Some existing investments are not performing as expected. Ineffective investments waste resources and hinder overall progress. We need to identify and re-evaluate these failing investments."
+
+# Define storyboard explicitly here since it may not be in the kernel state
+storyboard = [
+    ["BLUF", "Prioritize investment in lagging regions."],
+    ["Situation", "Adoption varies across regions."],
+    ["Complication", "Some regions are below the 65% target."],
+    ["Evidence", "The largest gaps are concentrated in lagging regions."],
+    ["Options", "Broad investment or targeted regional investment."],
+    ["Recommendation", "Target investment at lagging regions."],
+    ["Ask", "Approve the targeted investment approach."]
+]
+
+def build_notes(storyboard_data, big_idea_text): # Add big_idea_text as an argument
+   total = 0
+   print(f"OPEN (say the ask): {big_idea_text}\n") # Use the argument
+   for s in storyboard_data:
+       secs = TIME_BOX.get(s[0].lower(), 45)
+       total += secs
+       print(f"[{total//60}:{total%60:02d}] {s[0]}")
+       print(f"   Orient axes, then: {s[1]}")
+       print("   Point at one mark; do NOT read it.")
+   assert total <= 7*60, f"Over by {total-420}s — cut."
+   print("CLOSE (ask AGAIN): approve; 90-day check.")
+
+# Call build_notes with the explicitly defined storyboard and new_big_idea_text
+build_notes(storyboard, new_big_idea_text)
+
+# story/qa_prep.py — acknowledge -> answer -> BRIDGE
+
+QA = [
+ {"q": "Aren't those regions just small? (hostile)",
+  "answer": "Per-capita, not absolute (appx A2).",
+  "bridge": "so targeted spend closes the real gap."},
+
+ {"q": "Adoption looks high vs finance (data-wrong)",
+  "answer": "Unique users, not a column avg (A5).",
+  "bridge": "it holds at finance's lower figure."},
+
+ {"q": "Why not spend it on the app? (off-topic)",
+  "answer": "Channel infra is option 2; slower.",
+  "bridge": "region-targeting is fastest to 65%."},
+]
+
+def drill(qa):
+   for i, item in enumerate(qa, 1):
+       print(f"Q{i}: {item['q']}")
+       print(f"  A: {item['answer']}")
+       print(f"  ->bridge: ...{item['bridge']}")
+
+drill(QA)
+
