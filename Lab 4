@@ -1,0 +1,131 @@
+import plotly.graph_objects as go
+
+fig = go.Figure()
+
+fig.add_trace(go.Indicator(
+   mode="number",
+   value=8,
+   number={"suffix": "%"},
+   title={"text": "Overall Absence"}
+))
+
+fig.show()
+
+import plotly.graph_objects as go
+
+months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
+absence = [5, 6, 7, 8, 9, 8]
+
+fig = go.Figure()
+
+fig.add_trace(go.Scatter(
+   x=months,
+   y=absence,
+   mode="lines+markers"
+))
+
+fig.update_layout(
+   title="Monthly Absence Trend",
+   xaxis_title="Month",
+   yaxis_title="Absence (%)"
+)
+
+fig.show()
+
+import plotly.express as px
+
+departments = ["HR", "Finance", "IT", "Sales"]
+absence = [5, 8, 12, 7]
+
+fig = px.bar(
+   x=departments,
+   y=absence,
+   labels={"x": "Department", "y": "Absence (%)"},
+   title="Absence by Department"
+)
+
+fig.show()
+
+
+
+employees = [100, 100, 100, 100]
+absent = [5, 8, 12, 7]
+
+total_absent = sum(absent)
+total_employees = sum(employees)
+
+rate = total_absent / total_employees * 100
+
+print("Total absent:", total_absent)
+print("Total employees:", total_employees)
+print("Correct absence rate:", rate, "%")
+
+target = 5
+current = 8
+
+print("Current:", current, "%")
+print("Target:", target, "%")
+
+if current > target:
+   print("Above target")
+else:
+   print("Within target")
+
+# Dashboard title:
+title = "Employee Absence is Above Target — 8% vs 5%"
+print(title)
+
+
+fig.write_html("employee_absence_dashboard.html")
+
+print("Dashboard exported successfully.")
+
+
+
+measures = {
+   "absence_rate": "نسبة الغياب",
+   "absence_count": "عدد حالات الغياب"
+}
+
+print("اختر المؤشر:")
+for key, name in measures.items():
+   print(key, "→", name)
+
+import plotly.express as px
+
+departments = ["HR", "Finance", "IT", "Sales"]
+absence = [5, 8, 12, 7]
+
+fig = px.bar(
+   x=departments,
+   y=absence,
+   labels={"x": "Department", "y": "Absence %"},
+   title="Absence by Department"
+)
+
+fig.show()
+
+selected_department = "IT"
+
+print("Current Filter:", selected_department)
+
+levels = {
+   "Company": "All Employees",
+   "Department": "IT",
+   "Absence Type": "Sick Leave"
+}
+
+for level, value in levels.items():
+   print(level, "→", value)
+
+breadcrumb = "Home > IT > Sick Leave"
+
+print(breadcrumb)
+
+current_level = "IT > Sick Leave"
+
+print("Before Reset:", current_level)
+
+current_level = "All Employees"
+
+print("After Reset:", current_level)
